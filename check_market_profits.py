@@ -30,7 +30,7 @@ def SUMM():
 
 
 def summ_serf(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT SUM(serf_usd) FROM orders where active=0 and market= '%s'" % market)
@@ -45,7 +45,7 @@ def summ_serf(marketname):
 
 
 def count(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT COUNT(*) FROM orders where active=0 and market= '%s'" % market)
@@ -58,7 +58,7 @@ def count(marketname):
 
 
 def available_market_list(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market = marketname
     cursor.execute("SELECT * FROM markets WHERE enabled =1 and market = '%s'" % market)

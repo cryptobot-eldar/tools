@@ -26,7 +26,7 @@ def SUMM():
 
 
 #    try:
-#        db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+#        db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
 #        cursor = db.cursor()
 #        cursor.execute("SELECT DISTINCT `sell` FROM `orders` order by sell asc")
 #        numrows = cursor.rowcount
@@ -88,7 +88,7 @@ def SUMM():
 
 
 def summ_serf(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT SUM(percent_serf) FROM orders where active=0 and percent_serf>0 and market= '%s'" % market)
@@ -101,7 +101,7 @@ def summ_serf(marketname):
 
 
 def aftercount_serf(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT SUM(aftercount) FROM orders where active=0 and aftercount>0 and market= '%s'" % market)
@@ -115,7 +115,7 @@ def aftercount_serf(marketname):
 
 
 def aftercount_serf_sell(marketname, value):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     sell=value
@@ -130,7 +130,7 @@ def aftercount_serf_sell(marketname, value):
 
 
 def summ_serf_sell(marketname, value):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     sell=value
@@ -147,7 +147,7 @@ def summ_serf_sell(marketname, value):
 
 
 def available_market_list(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market = marketname
     cursor.execute("SELECT * FROM markets WHERE enabled =1 and market = '%s'" % market)

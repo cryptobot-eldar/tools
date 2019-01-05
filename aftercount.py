@@ -44,7 +44,7 @@ def ME():
                 if order_id!=0 and currtime - close_date(market)<172800:
 
                     try:
-                        db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+                        db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
                         cursor = db.cursor()
 
                         if procent_serf>=percent_serf(market):
@@ -69,7 +69,7 @@ def ME():
                 if order_id != 0 and currtime - close_date(market) < 80000 and aftercount-percent_serf(market)>=10:
                  try:
                      print "We have peak situation, lets wait"
-                     db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+                     db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
                      cursor = db.cursor()
                      printed1 = ("We have peak situation, lets wait")
                      cursor.execute(
@@ -96,7 +96,7 @@ def ME():
 
 
 def available_market_list(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market = marketname
     cursor.execute("SELECT * FROM markets WHERE  enabled=1 and market = '%s'" % market)
@@ -109,7 +109,7 @@ def available_market_list(marketname):
 
 
 def closed_orders_id(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT order_id FROM orders where active=0 and market= '%s' order by order_id desc" % market)
@@ -122,7 +122,7 @@ def closed_orders_id(marketname):
 
 
 def status_orders(marketname, value):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT * FROM orders WHERE active = 0 and market = '%s' order by order_id desc" % market)
@@ -136,7 +136,7 @@ def status_orders(marketname, value):
 
 
 def percent_serf(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT percent_serf FROM orders WHERE active=0 and market= '%s' order by order_id desc" % market)
@@ -147,7 +147,7 @@ def percent_serf(marketname):
 
 
 def close_date(marketname):
-    db = MySQLdb.connect("localhost", "cryptouser", "123456", "cryptodb")
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
     cursor.execute("SELECT sell_time FROM orders WHERE active=0 and market= '%s' order by order_id desc" % market)
