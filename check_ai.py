@@ -11,19 +11,19 @@ def main():
 
 def AI():
     market_summ = c.get_market_summaries().json()['result']
-    open('images/out5.csv', 'w').close()
-    open('images/out6.csv', 'w').close()
-    open('images/out7.csv', 'w').close()
+    open('data/out5.csv', 'w').close()
+    open('data/out6.csv', 'w').close()
+    open('data/out7.csv', 'w').close()
     for summary in market_summ: #Loop trough the market summary
             if available_market_list(summary['MarketName']):
                 market = summary['MarketName']
                 if summ_ai(market)>-1:
                     print market, summ_ai(market), count(market)
-                    f= open('images/out5.csv', 'a')
+                    f= open('data/out5.csv', 'a')
                     print >> f, str(market)
-                    f1=open('images/out6.csv', 'a')
+                    f1=open('data/out6.csv', 'a')
                     print >>f1, summ_ai(market)
-                    f2 = open('images/out7.csv', 'a')
+                    f2 = open('data/out7.csv', 'a')
                     print >> f2, count(market)
 
 

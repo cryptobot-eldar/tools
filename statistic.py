@@ -12,17 +12,17 @@ def main():
 
 def SUMM():
     market_summ = c.get_market_summaries().json()['result']
-    open('out8.csv', 'w').close()
-    open('out9.csv', 'w').close()
-    open('out10.csv', 'w').close()
-    open('out11.csv', 'w').close()
-    open('out12.csv', 'w').close()
-    open('out13.csv', 'w').close()
-    open('out14.csv', 'w').close()
-    open('out15.csv', 'w').close()
-    open('out16.csv', 'w').close()
-    open('out17.csv', 'w').close()
-    open('out-max.csv', 'w').close()
+    open('data/out8.csv', 'w').close()
+    open('data/out9.csv', 'w').close()
+    open('data/out10.csv', 'w').close()
+    open('data/out11.csv', 'w').close()
+    open('data/out12.csv', 'w').close()
+    open('data/out13.csv', 'w').close()
+    open('data/out14.csv', 'w').close()
+    open('data/out15.csv', 'w').close()
+    open('data/out16.csv', 'w').close()
+    open('data/out17.csv', 'w').close()
+    open('data/out-max.csv', 'w').close()
 
 
 #    try:
@@ -63,25 +63,25 @@ def SUMM():
                 sell_loss_7 = aftercount_serf_sell(market, 7) - summ_serf_sell(market, 7)
                 #if summ_serf(market)!=0:
                  #   print market, summ_serf(market), count(market)
-                f= open('out8.csv', 'a')
+                f= open('data/out8.csv', 'a')
                 print >> f, str(market)
-                f3 = open('out11.csv', 'a')
+                f3 = open('data/out11.csv', 'a')
                 print >> f3, sell_loss_0
-                f4 = open('out12.csv', 'a')
+                f4 = open('data/out12.csv', 'a')
                 print >> f4, sell_loss_1
-                f5 = open('out13.csv', 'a')
+                f5 = open('data/out13.csv', 'a')
                 print >> f5, sell_loss_2
-                f2 = open('out10.csv', 'a')
+                f2 = open('data/out10.csv', 'a')
                 print >> f2, sell_loss_3
-                f6 = open('out14.csv', 'a')
+                f6 = open('data/out14.csv', 'a')
                 print >> f6, sell_loss_4
-                f7 = open('out15.csv', 'a')
+                f7 = open('data/out15.csv', 'a')
                 print >> f7, sell_loss_5
-                f8 = open('out16.csv', 'a')
+                f8 = open('data/out16.csv', 'a')
                 print >> f8, sell_loss_6
-                f9 = open('out17.csv', 'a')
+                f9 = open('data/out17.csv', 'a')
                 print >> f9, sell_loss_7
-                f10 = open('out-max.csv', 'a')
+                f10 = open('data/out-max.csv', 'a')
                 print >> f10, max_loss
 
 
