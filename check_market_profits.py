@@ -11,19 +11,19 @@ def main():
 
 def SUMM():
     market_summ = c.get_market_summaries().json()['result']
-    open('out2.csv', 'w').close()
-    open('out3.csv', 'w').close()
-    open('out4.csv', 'w').close()
+    open('images/out2.csv', 'w').close()
+    open('images/out3.csv', 'w').close()
+    open('images/out4.csv', 'w').close()
     for summary in market_summ: #Loop trough the market summary
             if available_market_list(summary['MarketName']):
                 market = summary['MarketName']
                 if summ_serf(market)!=0:
                     print market, summ_serf(market), count(market)
-                    f= open('out2.csv', 'a')
+                    f= open('images/out2.csv', 'a')
                     print >> f, str(market)
-                    f1=open('out3.csv', 'a')
+                    f1=open('images/out3.csv', 'a')
                     print >>f1, summ_serf(market)
-                    f2 = open('out4.csv', 'a')
+                    f2 = open('images/out4.csv', 'a')
                     print >> f2, count(market)
 
 
