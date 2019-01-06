@@ -60,5 +60,32 @@ else
 fi
 
 
+SERVICE5='candles.py'
+
+if ps ax | grep -v grep | grep $SERVICE5 > /dev/null
+then
+    echo "$SERVICE5 service running "
+else
+    echo there is no such "$SERVICE5 service, starting"
+    python /usr/local/bin/candles.py
+fi
+
+
+
+SERVICE6='check_candle_signals.py'
+
+if ps ax | grep -v grep | grep $SERVICE6 > /dev/null
+then
+    echo "$SERVICE6 service running "
+else
+    echo there is no such "$SERVICE6 service, starting"
+    python /usr/local/bin/check_candle_signals.py
+fi
+
+
+
+
+
+
 sleep 10
 done
