@@ -6,83 +6,55 @@ do
 
 SERVICE0='aftercount.py'
 
-if ps ax | grep -v grep | grep $SERVICE0 > /dev/null
-then
-    echo "$SERVICE0 service running "
-else
-    echo there is no such "$SERVICE0 service, starting"
-    python /usr/local/bin/aftercount.py
-fi
+ps -ef | grep $SERVICE0 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE0 process is running" || echo "$SERVICE0 process is not running, starting"; python /usr/local/bin/aftercount.py
+
 
 
 SERVICE1='check_ai.py'
 
-if ps ax | grep -v grep | grep $SERVICE1 > /dev/null
-then
-    echo "$SERVICE1 service running "
-else
-    echo there is no such "$SERVICE1 service, starting"
-    python /usr/local/bin/check_ai.py
-fi
+ps -ef | grep $SERVICE1 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE1 process is running" || echo "$SERVICE1 process is not running, starting"; python /usr/local/bin/check_ai.py
+
 
 
 
 SERVICE2='check_market_profits.py'
 
-if ps ax | grep -v grep | grep $SERVICE2 > /dev/null
-then
-    echo "$SERVICE2 service running "
-else
-    echo there is no such "$SERVICE2 service, starting"
-    python /usr/local/bin/check_market_profits.py
-fi
+ps -ef | grep $SERVICE2 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE2 process is running" || echo "$SERVICE2 process is not running, starting"; python /usr/local/bin/check_market_profits.py
+
+
 
 
 SERVICE3='enable_market.py'
 
-if ps ax | grep -v grep | grep $SERVICE3 > /dev/null
-then
-    echo "$SERVICE3 service running "
-else
-    echo there is no such "$SERVICE3 service, starting"
-    python /usr/local/bin/enable_market.py
-fi
+ps -ef | grep $SERVICE3 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE3 process is running" || echo "$SERVICE3 process is not running, starting"; python /usr/local/bin/enable_market.py
+
+
 
 
 SERVICE4='statistic.py'
 
-if ps ax | grep -v grep | grep $SERVICE4 > /dev/null
-then
-    echo "$SERVICE4 service running "
-else
-    echo there is no such "$SERVICE4 service, starting"
-    python /usr/local/bin/statistic.py
-fi
+ps -ef | grep $SERVICE4 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE4 process is running" || echo "$SERVICE4 process is not running, starting"; python /usr/local/bin/statistic.py
+
 
 
 SERVICE5='candles.py'
 
-if ps ax | grep -v grep | grep $SERVICE5 > /dev/null
-then
-    echo "$SERVICE5 service running "
-else
-    echo there is no such "$SERVICE5 service, starting"
-    python /usr/local/bin/candles.py
-fi
+ps -ef | grep $SERVICE5 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE5 process is running" || echo "$SERVICE5 process is not running, starting"; python /usr/local/bin/candles.py
+
+
 
 
 
 SERVICE6='check_candle_signals.py'
 
-if ps ax | grep -v grep | grep $SERVICE6 > /dev/null
-then
-    echo "$SERVICE6 service running "
-else
-    echo there is no such "$SERVICE6 service, starting"
-    python /usr/local/bin/check_candle_signals.py
-fi
-
-
+ps -ef | grep $SERVICE6 | grep -v grep
+[ $?  -eq "0" ] && echo "$SERVICE6 process is running" || echo "$SERVICE6 process is not running, starting"; python /usr/local/bin/check_candle_signals.py
 
 
 
