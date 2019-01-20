@@ -9,4 +9,5 @@
 ./service3.sh &
 ./service4.sh &
 ./service5.sh &
-./service6.sh
+./service6.sh &
+./servide7.sh

@@ -33,7 +33,7 @@ def summ_serf(marketname):
     db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
     cursor = db.cursor()
     market=marketname
-    cursor.execute("SELECT SUM(serf_usd) FROM orders where active=0 and market= '%s'" % market)
+    cursor.execute("SELECT SUM(percent_serf) FROM orders where active=0 and market= '%s'" % market)
     r = cursor.fetchall()
     for row in r:
         if row[0] is not None:
