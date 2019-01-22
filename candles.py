@@ -48,6 +48,7 @@ def tick():
                 candles_signal_long = str(heikin_ashi(market, 30))
                 candles_signal_price = float(heikin_ashi(market, 32))
                 candles_signal_time=int(heikin_ashi(market, 31))
+                print "Gather thirtymin candle info for ", market
 
                 thirtylastcandle = get_candles(market, 'thirtymin')['result'][-1:]
                 thirtycurrentlow = float(thirtylastcandle[0]['L'])*100000
@@ -83,7 +84,7 @@ def tick():
 
 
 
-
+                print "Gather hour candle info for ", market
 
                 hlastcandle = get_candles(market, 'hour')['result'][-1:]
                 hcurrentlow = float(hlastcandle[0]['L'])*100000
@@ -120,7 +121,7 @@ def tick():
 
 
 
-
+                print "Starting candle patterns check for ", market
 #HAMMER
                 signal1="NONE"
                 signal2="NONE"
@@ -350,10 +351,10 @@ def tick():
                         if status_orders(market, 4)==1:
                             if (signal1!= "NONE"):
                                 cursor.execute(
-                                    'insert into orderlogs(market, signals, time) values("%s", "%s", "%s")' % (market, str(currenttime)+ ' 30m: ' + str(signal1), currtime))
+                                    'insert into orderlogs(market, signals, time, orderid) values("%s", "%s", "%s", "%s")' % (market, str(currenttime)+ ' 30m: ' + str(signal1), currtime, status_orders(market, 0)))
                             elif (signal2!= "NONE"):
                                 cursor.execute(
-                                    'insert into orderlogs(market, signals, time) values("%s", "%s", "%s")' % (market, str(currenttime)+' 1h: ' + str(signal2), currtime))
+                                    'insert into orderlogs(market, signals, time, orderid) values("%s", "%s", "%s", "%s")' % (market, str(currenttime)+' 1h: ' + str(signal2), currtime, status_orders(market, 0)))
                         else:
                             pass
                         db.commit()

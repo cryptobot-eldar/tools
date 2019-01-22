@@ -78,7 +78,7 @@ def ME():
                     hour='D'
 
 
-                #print market, last, hour, thirtymin, fivemin
+                print market, last, hour, thirtymin, fivemin
 
                 try:
                     db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")

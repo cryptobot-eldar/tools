@@ -4,7 +4,7 @@ from pybittrex.client import Client
 c=Client(api_key='', api_secret='')
 
 def main():
-    print('Starting summ checking module')
+    print('Starting market profits checking module')
 
     SUMM()
 
