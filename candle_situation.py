@@ -17,7 +17,7 @@ TICK_INTERVAL = 900  # seconds
 
 #The main function
 def main():
-    print('Starting buy module')
+    print('Starting candle situation module')
 
 
     # Running clock forever
@@ -98,7 +98,7 @@ def tick():
                 else:
                     hour='D'
 
-
+                print market, hour, thirtymin,fivemin
                 try:
                     db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
                     cursor = db.cursor()
