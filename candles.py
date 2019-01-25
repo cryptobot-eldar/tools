@@ -373,8 +373,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 1, signal1))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set candle_signal_short = %s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            (signal1, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -389,8 +389,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 0, signal1))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set candle_signal_short = %s,   candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            (signal1, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -407,8 +407,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 1, signal1))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set candle_signal_short = %s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            (signal1, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -424,8 +424,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 0, signal1))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set candle_signal_short = %s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            (signal1, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -443,8 +443,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 1, signal2))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            ( signal2, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -460,8 +460,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 0, signal2))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set  candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            ( signal2, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -477,8 +477,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 1, signal2))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set  candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            ( signal2, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -494,8 +494,8 @@ def tick():
                         cursor = db.cursor()
                         cursor.execute('insert into candlepredict(market, result, signals) values("%s", "%s", "%s")' % (market, 0, signal2))
                         cursor.execute(
-                            "update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
-                            (signal1, signal2, currtime, last, market))
+                            "update markets set  candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",
+                            ( signal2, currtime, last, market))
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
@@ -511,7 +511,7 @@ def tick():
                         cursor = db.cursor()
 
                         #printed = ('      '+ market + '   The HA_hour is  '  + '  and HAH is ' )
-                        cursor.execute("update markets set candle_signal_short = %s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market = %s",(signal1, signal2, currtime, last, market))
+                        cursor.execute("update markets set candle_signal_short=%s, candle_signal_long =%s,  candle_signal_time=%s, candle_signal_price=%s  where market=%s",(signal1, signal2, currtime, last, market))
 
                         db.commit()
                     except MySQLdb.Error, e:
@@ -519,11 +519,6 @@ def tick():
                         sys.exit(1)
                     finally:
                         db.close()
-
-
-
-
-
 
 
 
@@ -585,17 +580,6 @@ def heikin_ashi(marketname, value):
 
     return False
 
-def status_orders(marketname, value):
-    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
-    cursor = db.cursor()
-    market=marketname
-    cursor.execute("SELECT * FROM orders WHERE active = 1 and market = '%s'" % market)
-    r = cursor.fetchall()
-    for row in r:
-        if row[1] == marketname:
-            return row[value]
-
-    return 0
 
 
 
