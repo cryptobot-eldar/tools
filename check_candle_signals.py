@@ -36,7 +36,8 @@ def summ_ai(marketname):
     cursor.execute("SELECT SUM(result) FROM candlepredict where market= '%s'" % market)
     r = cursor.fetchall()
     for row in r:
-        if row[0] is not None:
+#        if row[0] is not None:
+        if row[0]!=0:
             return row[0]
 
     return 0
@@ -51,7 +52,8 @@ def count(marketname):
     cursor.execute("SELECT COUNT(*) FROM candlepredict where market= '%s'" % market)
     r = cursor.fetchall()
     for row in r:
-        if row[0] is not None:
+#        if row[0] is not None:
+        if row[0] != 0:
             return row[0]
 
     return 0

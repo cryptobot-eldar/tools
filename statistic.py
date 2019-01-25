@@ -100,7 +100,7 @@ def SUMM():
                     f8 = open('data/out16.csv', 'a')
                     print >> f8, 0.0
                 if (aftercount_serf_sell(market, 7) - summ_serf_sell(market, 7))>0:
-                    sell_loss_7 = aftercount_serf_sell(market, 8) - summ_serf_sell(market, 8)
+                    sell_loss_7 = aftercount_serf_sell(market, 7) - summ_serf_sell(market, 7)   # was 8, changed to 7
                     f9 = open('data/out17.csv', 'a')
                     print >> f9, sell_loss_7
                 else:
