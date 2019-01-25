@@ -96,12 +96,12 @@ def ME():
 
                 #print market, percent(market, 21)
 
-                if (spread>0.3 and bought_quantity_sql>0 and percent_grow==-1 and open_buy(market)==2  and ((get_balance_from_market(market)['result']['Available'] >0.0 or get_balance_from_market(market)['result']['Balance'] >0.0))):
+                if (spread>0.4 and bought_quantity_sql>0 and percent_grow==-1 and open_buy(market)==2  and ((get_balance_from_market(market)['result']['Available'] >0.0 or get_balance_from_market(market)['result']['Balance'] >0.0))):
                     print market, "We have open order, but we need to disable this currency"
 
 
-                if (spread>0.3 and bought_quantity_sql==0 and percent_grow==-1) or ((HAD_trend=="DOWN" or HAD_trend=="Revers-DOWN") and currtime - ha_time_second < 3000):
-                    if has_open_order(market, 'LIMIT_SELL') or has_open_order(market, 'LIMIT_BUY') or open_buy(market)==2:
+                if (spread>0.4 and bought_quantity_sql==0 and percent_grow==-1) or ((HAD_trend=="DOWN" or HAD_trend=="Revers-DOWN") and currtime - ha_time_second < 3000):
+                    if has_open_order(market, 'LIMIT_SELL') or has_open_order(market, 'LIMIT_BUY') or open_buy(market)==2 or open_buy_sql(market)==1: #added last for test bot
                         pass
                     else:
                         print market, "We are disabling this currency"
@@ -118,7 +118,7 @@ def ME():
                             db.close()
 
 
-                if spread<0.3 and (percent_grow==1 or percent_grow==0)  and market_count() <=max_markets:
+                if spread<0.4 and (percent_grow==1 or percent_grow==0)  and market_count() <=max_markets:
                     print market, "We need to enable those currencies"
                     try:
                         db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
@@ -135,6 +135,24 @@ def ME():
 
         except:
             continue
+
+
+
+
+def open_buy_sql(marketname):
+    db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
+    cursor = db.cursor()
+    market=marketname
+    cursor.execute("SELECT active FROM orders WHERE active =1 and market = '%s'" % market)
+    r = cursor.fetchall()
+    for row in r:
+        return (row[0])
+    return 0
+
+
+
+
+
 
 def available_market_list(marketname):
     db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
