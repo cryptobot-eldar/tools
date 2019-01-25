@@ -382,7 +382,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (candles_signal_short=="UP_1" or candles_signal_short=="UP_2" or candles_signal_short=="UP_3" or candles_signal_short=="UP_4" or candles_signal_short=="UP_5" or candles_signal_short=="UP_6" or candles_signal_short=="UP_7" or candles_signal_short=="UP_8") and (signal1!="NONE" or currtime-candles_signal_time>3600) and last<candles_signal_price:
+                if (candles_signal_short=="UP_1" or candles_signal_short=="UP_2" or candles_signal_short=="UP_3" or candles_signal_short=="UP_4" or candles_signal_short=="UP_5" or candles_signal_short=="UP_6" or candles_signal_short=="UP_7" or candles_signal_short=="UP_8") and (signal1!="NONE" or currtime-candles_signal_time>3600) and last<candles_signal_price:
                     print market, "prediction was failed"
                     try:
                         db = MySQLdb.connect("database-service", "cryptouser", "123456","cryptodb")
@@ -399,7 +399,7 @@ def tick():
                         db.close()
 
 
-                elif (candles_signal_short == "DOWN_1" or candles_signal_short == "DOWN_2" or candles_signal_short == "DOWN_3" or candles_signal_short == "DOWN_4" or candles_signal_short == "DOWN_5" or candles_signal_short == "DOWN_6" or candles_signal_short == "DOWN_7") and (
+                if (candles_signal_short == "DOWN_1" or candles_signal_short == "DOWN_2" or candles_signal_short == "DOWN_3" or candles_signal_short == "DOWN_4" or candles_signal_short == "DOWN_5" or candles_signal_short == "DOWN_6" or candles_signal_short == "DOWN_7") and (
                         signal1 != "NONE" or currtime - candles_signal_time > 3600) and last < candles_signal_price:
                     print market, "prediction was successfull"
                     try:
@@ -416,7 +416,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (candles_signal_short == "DOWN_1" or candles_signal_short == "DOWN_2" or candles_signal_short == "DOWN_3" or candles_signal_short == "DOWN_4" or candles_signal_short == "DOWN_5" or candles_signal_short == "DOWN_6" or candles_signal_short == "DOWN_7") and (
+                if (candles_signal_short == "DOWN_1" or candles_signal_short == "DOWN_2" or candles_signal_short == "DOWN_3" or candles_signal_short == "DOWN_4" or candles_signal_short == "DOWN_5" or candles_signal_short == "DOWN_6" or candles_signal_short == "DOWN_7") and (
                         signal1 != "NONE" or currtime - candles_signal_time > 3600) and last > candles_signal_price:
                     print market, "prediction was failed"
                     try:
@@ -435,7 +435,7 @@ def tick():
 
 
 
-                elif (candles_signal_long == "UP_1" or candles_signal_long == "UP_2" or candles_signal_long == "UP_3" or candles_signal_long == "UP_4" or candles_signal_long == "UP_5" or candles_signal_long == "UP_6" or candles_signal_long == "UP_7" or candles_signal_long == "UP_8") and (
+                if (candles_signal_long == "UP_1" or candles_signal_long == "UP_2" or candles_signal_long == "UP_3" or candles_signal_long == "UP_4" or candles_signal_long == "UP_5" or candles_signal_long == "UP_6" or candles_signal_long == "UP_7" or candles_signal_long == "UP_8") and (
                         signal2 != "NONE" or currtime - candles_signal_time > 7200) and last > candles_signal_price:
                     print market, "prediction was successfull"
                     try:
@@ -452,7 +452,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (candles_signal_long == "UP_1" or candles_signal_long == "UP_2" or candles_signal_long == "UP_3" or candles_signal_long == "UP_4" or candles_signal_long == "UP_5" or candles_signal_long == "UP_6" or candles_signal_long == "UP_7" or candles_signal_long == "UP_8") and (
+                if (candles_signal_long == "UP_1" or candles_signal_long == "UP_2" or candles_signal_long == "UP_3" or candles_signal_long == "UP_4" or candles_signal_long == "UP_5" or candles_signal_long == "UP_6" or candles_signal_long == "UP_7" or candles_signal_long == "UP_8") and (
                         signal2 != "NONE" or currtime - candles_signal_time > 7200) and last < candles_signal_price:
                     print market, "prediction was failed"
                     try:
@@ -469,7 +469,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (candles_signal_long == "DOWN_1" or candles_signal_long == "DOWN_2" or candles_signal_long == "DOWN_3" or candles_signal_long == "DOWN_4" or candles_signal_long == "DOWN_5" or candles_signal_long == "DOWN_6" or candles_signal_long == "DOWN_7") and (
+                if (candles_signal_long == "DOWN_1" or candles_signal_long == "DOWN_2" or candles_signal_long == "DOWN_3" or candles_signal_long == "DOWN_4" or candles_signal_long == "DOWN_5" or candles_signal_long == "DOWN_6" or candles_signal_long == "DOWN_7") and (
                                 signal2 != "NONE" or currtime - candles_signal_time > 7200) and last < candles_signal_price:
                     print market, "prediction was successfull"
                     try:
@@ -486,7 +486,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (candles_signal_long == "DOWN_1" or candles_signal_long == "DOWN_2" or candles_signal_long == "DOWN_3" or candles_signal_long == "DOWN_4" or candles_signal_long == "DOWN_5" or candles_signal_long == "DOWN_6" or candles_signal_long == "DOWN_7") and (
+                if (candles_signal_long == "DOWN_1" or candles_signal_long == "DOWN_2" or candles_signal_long == "DOWN_3" or candles_signal_long == "DOWN_4" or candles_signal_long == "DOWN_5" or candles_signal_long == "DOWN_6" or candles_signal_long == "DOWN_7") and (
                                 signal2 != "NONE" or currtime - candles_signal_time > 7200) and last > candles_signal_price:
                     print market, "prediction was failed"
                     try:
@@ -503,7 +503,7 @@ def tick():
                     finally:
                         db.close()
 
-                elif (signal1=="NONE" or signal2=="NONE") and currtime - candles_signal_time > 3600 :
+                if (signal1=="NONE" or signal2=="NONE") and currtime - candles_signal_time > 3600 :
 
                     try:
                         print market, "lets update new predictions"
@@ -519,8 +519,7 @@ def tick():
                         sys.exit(1)
                     finally:
                         db.close()
-                else:
-                    pass
+
 
 
 
