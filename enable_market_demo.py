@@ -4,6 +4,9 @@ import MySQLdb
 import sys
 import datetime
 import time
+import hmac
+import requests
+import hashlib
 now = datetime.datetime.now()
 currenttime = now.strftime("%Y-%m-%d %H:%M")
 #c = Client(api_key=config.key, api_secret=config.secret)
@@ -205,3 +208,23 @@ def heikin_ashi(marketname, value):
             return row[value]
 
     return False
+
+
+def get_candles(market, tick_interval):
+    url = 'https://bittrex.com/api/v2.0/pub/market/GetTicks?apikey=' + config.key + '&MarketName=' + market +'&tickInterval=' + str(tick_interval)
+    return signed_request(url)
+
+
+def signed_request(url):
+    now = time.time()
+    url += '&nonce=' + str(now)
+    signed = hmac.new(config.secret, url.encode('utf-8'), hashlib.sha512).hexdigest()
+    headers = {'apisign': signed}
+    r = requests.get(url, headers=headers)
+    return r.json()
+
+
+
+
+if __name__ == "__main__":
+    main()
