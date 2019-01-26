@@ -43,6 +43,7 @@ def ME():
 
 
                 if order_id!=0 and currtime - close_date(market)<172800:
+                    print market, 'moved to comparing'
 
                     try:
                         db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
@@ -89,7 +90,7 @@ def ME():
 
 
 
-                #print market, percent_serf(market), procent_serf, aftercount, min_percent
+                print market, percent_serf(market), procent_serf, aftercount, min_percent
 
         except:
             continue
