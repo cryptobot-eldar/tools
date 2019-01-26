@@ -120,7 +120,7 @@ def ME():
                             printed = ('    We are disabling this currency  ' + market)
                             db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
                             cursor = db.cursor()
-                            cursor.execute('update markets set active= 0 where  market =("%s")' % market)
+                            cursor.execute('update markets set active= 0 where enabled=1 and market =("%s")' % market)
                             db.commit()
                         except MySQLdb.Error, e:
                             print "Error %d: %s" % (e.args[0], e.args[1])
@@ -133,7 +133,7 @@ def ME():
                     try:
                         db = MySQLdb.connect("database-service", "cryptouser", "123456", "cryptodb")
                         cursor = db.cursor()
-                        cursor.execute('update markets set active= 1 where market =("%s")' % market)
+                        cursor.execute('update markets set active= 1 where enabled=1 and market =("%s")' % market)
                         db.commit()
                     except MySQLdb.Error, e:
                         print "Error %d: %s" % (e.args[0], e.args[1])
