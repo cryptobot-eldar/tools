@@ -60,9 +60,13 @@ def ME():
                 hourlastcandle = get_candles(market, 'hour')['result'][-1:]
                 hourcurrentopen = float(hourlastcandle[0]['O'])
 
+                daylastcandle = get_candles(market, 'day')['result'][-1:]
+                daycurrentopen = float(daylastcandle[0]['O'])
+
                 fivemin='NONE'
                 thirtymin='NONE'
                 hour='NONE'
+                day='NONE'
 
                 if last>currentopen5:
                     fivemin='U'
@@ -78,6 +82,11 @@ def ME():
                     hour='U'
                 else:
                     hour='D'
+
+                if last>daycurrentopen:
+                    day='U'
+                else:
+                    day='D'
 
 
                 print market, last, hour, thirtymin, fivemin
@@ -105,7 +114,7 @@ def ME():
                     print market, "We have open order, but we need to disable this currency"
 
 
-                if (spread>0.3 and bought_quantity_sql==0 and percent_grow==-1) or ((HAD_trend=="DOWN" or HAD_trend=="Revers-DOWN") and currtime - ha_time_second < 3000):
+                if (spread>0.3 and bought_quantity_sql==0 and percent_grow==-1) or ((HAD_trend=="DOWN" or HAD_trend=="Revers-DOWN") and currtime - ha_time_second < 3000 and day=='D'):
                         print market, "We are disabling this currency"
                         try:
                             printed = ('    We are disabling this currency  ' + market)
