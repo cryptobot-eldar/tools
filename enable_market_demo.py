@@ -23,6 +23,7 @@ def main():
 
 def ME():
     market_summ = c.get_market_summaries().json()['result']
+    max_markets = parameters()[6]
 #    print c.get_market_summaries().json()['result']
     for summary in market_summ: #Loop trough the market summary
         try:
@@ -37,7 +38,6 @@ def ME():
                 last = float(summary['Last'])  #last price
                 bid = float(summary['Bid'])    #sell price
                 ask = float(summary['Ask'])    #buy price
-                max_markets = parameters()[6]
                 HAD_trend = heikin_ashi(market, 18)
                 ha_time_second = heikin_ashi(market, 23)
                 spread = float(((ask / bid) - 1) * 100)
