@@ -33,13 +33,12 @@ def ME():
                 market = summary['MarketName']
                 day_close = summary['PrevDay']  # Getting day of closing order
                 volume = int(summary['BaseVolume'])
-                bought_quantity_sql = float(status_orders(market, 2))
-                last = float(summary['Last'])  # last price
-                percent_chg = float(((last / day_close) - 1) * 100)
-                percent_sql = float(heikin_ashi(market, 21))
                 last = float(summary['Last'])  #last price
                 bid = float(summary['Bid'])    #sell price
                 ask = float(summary['Ask'])    #buy price
+                bought_quantity_sql = float(status_orders(market, 2))
+                percent_chg = float(((last / day_close) - 1) * 100)
+                percent_sql = float(heikin_ashi(market, 21))
                 HAD_trend = heikin_ashi(market, 18)
                 ha_time_second = heikin_ashi(market, 23)
                 spread = float(((ask / bid) - 1) * 100)
