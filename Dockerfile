@@ -3,4 +3,5 @@ COPY aftercount.py check_ai.py check_market_profits.py enable_market.py statisti
 RUN mkdir /usr/local/bin/data
 WORKDIR /usr/local/bin
 RUN chmod +x start.sh service0.sh service1.sh service2.sh service3.sh service4.sh service5.sh service6.sh service7.sh service8.sh
+RUN timedatectl set-timezone Europe/Warsaw
 ENTRYPOINT ["/usr/local/bin/start.sh"]
