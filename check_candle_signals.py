@@ -28,7 +28,7 @@ def AI():
                     print >> f2, count(market)
     os.rename('data/out18_tmp.csv', 'data/out18.csv')
     os.rename('data/out19_tmp.csv', 'data/out19.csv')
-    os.rename('data/out19_tmp.csv', 'data/out19.csv')
+    os.rename('data/out20_tmp.csv', 'data/out20.csv')
 
 
 

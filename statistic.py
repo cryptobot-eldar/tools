@@ -12,17 +12,17 @@ def main():
 
 def SUMM():
     market_summ = c.get_market_summaries().json()['result']
-    open('data/out8.csv', 'w').close()
-    open('data/out9.csv', 'w').close()
-    open('data/out10.csv', 'w').close()
-    open('data/out11.csv', 'w').close()
-    open('data/out12.csv', 'w').close()
-    open('data/out13.csv', 'w').close()
-    open('data/out14.csv', 'w').close()
-    open('data/out15.csv', 'w').close()
-    open('data/out16.csv', 'w').close()
-    open('data/out17.csv', 'w').close()
-    open('data/out-max.csv', 'w').close()
+    open('data/out8_tmp.csv', 'w').close()
+    open('data/out9_tmp.csv', 'w').close()
+    open('data/out10_tmp.csv', 'w').close()
+    open('data/out11_tmp.csv', 'w').close()
+    open('data/out12_tmp.csv', 'w').close()
+    open('data/out13_tmp.csv', 'w').close()
+    open('data/out14_tmp.csv', 'w').close()
+    open('data/out15_tmp.csv', 'w').close()
+    open('data/out16_tmp.csv', 'w').close()
+    open('data/out17_tmp.csv', 'w').close()
+    open('data/out-max_tmp.csv', 'w').close()
 
 
 #    try:
